@@ -1,5 +1,4 @@
 define drupal_site ($enable) {
-
   include apache
 
   if (defined("apache::vhost")) {
