@@ -1,4 +1,5 @@
-define drupal_site ($enable) {
+define drupal_site ($enable, $domain = 'local') {
+
   include apache
 
   if (defined("apache::vhost")) {
@@ -9,7 +10,7 @@ define drupal_site ($enable) {
       notify   => Service['httpd'],
     }
 
-    apache::vhost { "${name}":
+    apache::vhost { "${name}.${domain}":
       docroot => "/var/www/html/${name}",
     }
   }
